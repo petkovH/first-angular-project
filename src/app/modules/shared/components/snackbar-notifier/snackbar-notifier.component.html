@@ -1,0 +1,10 @@
+<div class="snackBar">
+  <div class="message">
+    {{ (snackBarMessage$ | async)?.snackMessage }}
+  </div>
+
+  <app-button-item
+    (click)="snackBarRef.dismiss()"
+    text="{{ data.buttonText }}"
+  ></app-button-item>
+</div>

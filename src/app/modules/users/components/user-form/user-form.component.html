@@ -1,0 +1,101 @@
+<div class="users-form" *ngIf="showForm">
+  <form [formGroup]="usersForm" (ngSubmit)="onSubmit(usersForm.value)">
+    <div formGroupName="userInfo">
+      <app-form-input
+        label="Name"
+        [formInput]="getFormControl(usersForm.get('name'))"
+      >
+        <input class="input" type="text" formControlName="name" />
+        <div
+          class="errors"
+          *ngIf="name?.invalid && (name?.touched || name?.dirty)"
+        >
+          <small *ngIf="name?.errors?.['required']">Name is required!</small>
+          <small *ngIf="name?.errors?.['pattern']"
+            >Please use only letters!</small
+          >
+        </div>
+      </app-form-input>
+
+      <app-form-input
+        label="Age"
+        [formInput]="getFormControl(usersForm.get('age'))"
+      >
+        <input class="input" type="text" formControlName="age" />
+        <div class="errors" *ngIf="age?.invalid && age?.touched">
+          <small *ngIf="age?.errors?.['required']">Age is required!</small>
+          <small *ngIf="age?.errors?.['pattern']"
+            >Please use only numbers!</small
+          >
+        </div>
+      </app-form-input>
+
+      <app-form-input
+        label="Male"
+        [formInput]="getFormControl(usersForm.get('gender'))"
+      >
+        <input
+          class="input"
+          type="radio"
+          [value]="true"
+          formControlName="gender"
+        />
+      </app-form-input>
+      <app-form-input
+        label="Female"
+        [formInput]="getFormControl(usersForm.get('gender'))"
+      >
+        <input
+          class="input"
+          type="radio"
+          [value]="false"
+          formControlName="gender"
+        />
+      </app-form-input>
+      <!-- <label>Name:</label>
+        <input type="text" formControlName="name" />
+        <div *ngIf="name?.invalid && (name?.touched || name?.dirty)">
+          <small *ngIf="name?.errors?.['required']">Name is required!</small>
+          <small *ngIf="name?.errors?.['pattern']"
+            >Please use only letters!</small
+          >
+        </div> -->
+
+      <!-- <div class="form-input">
+        <label>Age:</label>
+        <input type="text" formControlName="age" />
+        <div *ngIf="age?.invalid && age?.touched">
+          <small *ngIf="age?.errors?.['required']">Age is required!</small>
+          <small *ngIf="age?.errors?.['pattern']"
+            >Please use only numbers!</small
+          >
+        </div>
+      </div> -->
+
+      <!-- <div class="form-input">
+        <label>Gender:</label>
+        <input type="radio" [value]="true" formControlName="gender" />
+        <label for="male">Male</label>
+        <input type="radio" [value]="false" formControlName="gender" />
+        <label for="female">Feale</label>
+      </div> -->
+    </div>
+
+    <app-contact-form
+      [form]="usersForm"
+      [contact]="'contactForm'"
+    ></app-contact-form>
+
+    <app-address-form
+      [form]="usersForm"
+      [address]="'addressForm'"
+    ></app-address-form>
+    <app-books-form [form]="usersForm" [book]="'booksForm'"></app-books-form>
+
+    <app-button-item
+      routerLink="/users"
+      type="submit"
+      text="Submit"
+    ></app-button-item>
+  </form>
+</div>

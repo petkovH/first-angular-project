@@ -1,0 +1,39 @@
+<h2>Books</h2>
+<div *ngFor="let book of booksForm.controls">
+  <div [formGroup]="booksFormGroup(book)">
+    <app-form-input
+      label="Book Name"
+      [formInput]="getFormControl(booksForm.get('bookName'))"
+    >
+      <input class="input" type="text" formControlName="bookName" />
+    </app-form-input>
+    <app-form-input
+      label="Author"
+      [formInput]="getFormControl(booksForm.get('author'))"
+    >
+      <input class="input" type="text" formControlName="author" />
+    </app-form-input>
+    <app-form-input
+      label="Book ID"
+      [formInput]="getFormControl(booksForm.get('id'))"
+    >
+      <input class="input" type="text" formControlName="id" />
+    </app-form-input>
+    <!-- <label for="bookName">Name: </label>
+    <input id="bookName" type="text" formControlName="bookName" /> -->
+
+    <!-- <label for="author">Author: </label>
+    <input id="author" type="text" formControlName="author" />
+
+    <label for="id">Id: </label>
+    <input id="id" type="text" formControlName="id" /> -->
+  </div>
+</div>
+<div>
+  <app-button-item
+    type="button"
+    text="Add more books"
+    color="#566573"
+    (click)="addBook()"
+  ></app-button-item>
+</div>

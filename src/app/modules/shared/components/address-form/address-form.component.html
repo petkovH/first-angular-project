@@ -1,0 +1,97 @@
+<div [formGroup]="addressForm">
+  <h2>Address</h2>
+
+  <app-form-input
+    label="Country"
+    [formInput]="getFormControl(addressForm.get('country'))"
+  >
+    <input class="input" type="text" formControlName="country" />
+    <div
+      class="errors"
+      *ngIf="country?.invalid && (country?.touched || country?.dirty)"
+    >
+      <small *ngIf="country?.errors?.['pattern']"
+        >Please use only letters!</small
+      >
+    </div>
+  </app-form-input>
+
+  <app-form-input
+    label="State"
+    [formInput]="getFormControl(addressForm.get('state'))"
+  >
+    <input class="input" type="text" formControlName="state" />
+    <div
+      class="errors"
+      *ngIf="state?.invalid && (state?.touched || state?.dirty)"
+    >
+      <small *ngIf="state?.errors?.['pattern']">Please use only letters!</small>
+    </div>
+  </app-form-input>
+
+  <app-form-input
+    label="City"
+    [formInput]="getFormControl(addressForm.get('city'))"
+  >
+    <input class="input" type="text" formControlName="city" />
+    <div class="errors" *ngIf="city?.invalid && (city?.touched || city?.dirty)">
+      <small *ngIf="city?.errors?.['pattern']">Please use only letters!</small>
+    </div>
+  </app-form-input>
+
+  <app-form-input
+    label="Street"
+    [formInput]="getFormControl(addressForm.get('street'))"
+  >
+    <input class="input" type="text" formControlName="street" />
+  </app-form-input>
+
+  <app-form-input
+    label="Zip Code"
+    [formInput]="getFormControl(addressForm.get('zip'))"
+  >
+    <input class="input" type="text" formControlName="zip" />
+    <div class="errors" *ngIf="zip?.invalid && (zip?.touched || zip?.dirty)">
+      <small *ngIf="zip?.errors?.['pattern']">Please use only numbers!</small>
+    </div>
+  </app-form-input>
+
+  <!-- <div>
+    <label for="country">Country: </label>
+    <input id="country" type="text" formControlName="country" />
+    <div *ngIf="country?.invalid && (country?.touched || country?.dirty)">
+      <small *ngIf="country?.errors?.['pattern']"
+        >Please use only letters!</small
+      >
+    </div>
+  </div> -->
+
+  <!-- <div>
+    <label for="state">State: </label>
+    <input id="state" type="text" formControlName="state" />
+    <div *ngIf="state?.invalid && (state?.touched || state?.dirty)">
+      <small *ngIf="state?.errors?.['pattern']">Please use only letters!</small>
+    </div>
+  </div> -->
+
+  <!--   <div>
+    <label for="city">City: </label>
+    <input id="city" type="text" formControlName="city" />
+    <div *ngIf="city?.invalid && (city?.touched || city?.dirty)">
+      <small *ngIf="city?.errors?.['pattern']">Please use only letters!</small>
+    </div>
+  </div>
+
+  <div>
+    <label for="street">Street: </label>
+    <input id="street" type="text" formControlName="street" />
+  </div>
+
+  <div>
+    <label for="zip">Zip Code: </label>
+    <input id="zip" type="text" formControlName="zip" />
+    <div *ngIf="zip?.invalid && (zip?.touched || zip?.dirty)">
+      <small *ngIf="zip?.errors?.['pattern']">Please use only letters!</small>
+    </div>
+  </div> -->
+</div>

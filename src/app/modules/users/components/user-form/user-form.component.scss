@@ -1,0 +1,17 @@
+.users-form {
+  background-color: lightgrey;
+  margin: 15px;
+  padding: 10px;
+}
+
+.form-input {
+  margin: 10px;
+}
+
+input.ng-invalid.ng-touched {
+  border: red 1.5px solid;
+}
+
+small {
+  color: red;
+}

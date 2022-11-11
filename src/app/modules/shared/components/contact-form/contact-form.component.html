@@ -1,0 +1,43 @@
+<h2>Contacts</h2>
+<div *ngFor="let contact of contactForm.controls">
+  <div [formGroup]="contactsFormGroup(contact)">
+    <app-form-input
+      label="Phone"
+      [formInput]="getFormControl(contactForm.get('phone'))"
+    >
+      <input class="input" type="text" formControlName="phone" />
+    </app-form-input>
+    <app-form-input
+      label="Email"
+      [formInput]="getFormControl(contactForm.get('email'))"
+    >
+      <input class="input" type="text" formControlName="email" />
+    </app-form-input>
+    <!--  <div>
+      <label for="street">Phone: </label>
+      <input id="street" type="text" formControlName="phone" />
+      <div *ngIf="phone?.invalid && (phone?.touched || phone?.dirty)">
+      <small *ngIf="phone?.errors?.['required']">Phone is required!</small>
+      <small *ngIf="phone?.errors?.['pattern']"
+        >Please enter a valid phone!</small
+      >
+      </div> 
+    </div> -->
+    <!--  <div>
+      <label for="state">Email: </label>
+      <input id="state" type="text" formControlName="email" />
+       <div *ngIf="email?.invalid && (email?.touched || email?.dirty)">
+      <small *ngIf="email?.errors?.['required']">Email is required!</small>
+      <small *ngIf="email?.errors?.['pattern']"
+        >Please enter a valid email!</small
+      >
+    </div> 
+    </div> -->
+  </div>
+</div>
+<app-button-item
+  type="button"
+  text="Add more contacts"
+  color="#566573"
+  (click)="addContact()"
+></app-button-item>

@@ -1,0 +1,38 @@
+<ng-container
+  class="users-card-container"
+  *ngIf="hideMales && user.userInfo.gender ? false : true"
+>
+  <div
+    class="users-card"
+    ngClass="{{ user.activated ? 'active' : 'inactive' }}"
+  >
+    <div class="users-info">
+      <span>{{ user.userInfo.name }}</span>
+      <span>{{ user.userInfo.age }}</span>
+      <span>{{ user.userInfo.gender | boleanToGender }}</span>
+    </div>
+
+    <div class="users-data">
+      <span>Contacts</span>
+      <span>Address</span>
+      <span>Books</span>
+    </div>
+
+    <app-button-item
+      (click)="changeGender(user)"
+      color="lightgreen"
+      text="Change gender"
+    ></app-button-item>
+
+    <app-button-item
+      (click)="activateCard(user)"
+      color="red"
+      text="{{ user.activated ? 'Deactivate card' : 'Activate card' }}"
+    ></app-button-item>
+    <app-button-item
+      (click)="editUser(user)"
+      text="Edit"
+      *appPermission="['editUser']"
+    ></app-button-item>
+  </div>
+</ng-container>

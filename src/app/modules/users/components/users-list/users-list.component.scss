@@ -1,0 +1,14 @@
+.main-container {
+  padding-top: 10px;
+  background-color: rgb(255, 239, 196);
+}
+
+.buttons-row {
+  display: flex;
+}
+
+.users-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}

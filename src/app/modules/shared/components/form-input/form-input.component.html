@@ -1,0 +1,15 @@
+<div class="form-field">
+  <label class="form-label">{{ label }}:</label>
+
+  <ng-content select=".input"></ng-content>
+  <ng-content select=".errors"></ng-content>
+
+  <!--  <div *ngIf="formInput?.invalid && (formInput?.touched || formInput?.dirty)">
+    <small *ngIf="formInput?.errors?.['required']"
+      >This field is required!</small
+    >
+    <small *ngIf="formInput?.errors?.['pattern']"
+      >Please use the correct format!</small
+    >
+  </div> -->
+</div>

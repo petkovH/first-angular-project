@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+  <span class="spacer"></span>
+  <div *ngIf="isLoggedIn">
+    <a mat-button routerLink="/login" text="Log Out" (click)="onSignOut()"
+      >LOG OUT</a
+    >
+    <a mat-button routerLink="/users">USER CARDS</a>
+    <a mat-button routerLink="/users/add" *appPermission="['addUser']"
+      >ADD USER CARD</a
+    >
+  </div>
+</mat-toolbar>

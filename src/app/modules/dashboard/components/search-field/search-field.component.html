@@ -1,0 +1,5 @@
+<div>
+  <span>Search by name</span>
+  <input type="number" (keydown.e)="onKeydown($event)" name="test" [(ngModel)]="searchData" id="searchData" />
+  <span>{{ searchData }}</span>
+</div>

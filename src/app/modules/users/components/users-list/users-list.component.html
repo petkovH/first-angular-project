@@ -1,0 +1,44 @@
+<div class="main-container">
+  <app-app-dashboard></app-app-dashboard>
+
+  <div class="buttons-row">
+    <div>
+      <app-button-item
+        routerLink="/add"
+        (click)="showUsersForm()"
+        text="ADD USERS CARD"
+        *appPermission="['addUser']"
+      ></app-button-item>
+    </div>
+    <div>
+      <app-button-item
+        text="{{ hideMales ? 'Show Males' : 'Hide Males' }}"
+        (click)="hideAllMales()"
+      ></app-button-item>
+    </div>
+    <div tooltip="Activate all cards" placement="bottom" [delay]="2000">
+      <app-button-item
+        color="red"
+        text="{{
+          activateCards ? 'Deactivate all cards' : 'Activate all cards'
+        }}"
+        (click)="activateAllCards()"
+      ></app-button-item>
+    </div>
+  </div>
+
+  <app-user-form
+    (addUserCard)="addUser($event)"
+    *ngIf="showForm"
+  ></app-user-form>
+  <div class="users-container">
+    <app-users-card
+      (switchGender)="switchGender($event)"
+      (activate)="activate($event)"
+      *ngFor="let user of users"
+      [user]="user"
+      [hideMales]="hideMales"
+      [activateCards]="activateCards"
+    ></app-users-card>
+  </div>
+</div>
